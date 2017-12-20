@@ -15,12 +15,12 @@ class ProductsTableSeeder extends Seeder
     {
         DB::connection('mysql')->table('products')->truncate();
 
-        for ($i=0; $i<50; $i++) {
+        for ($i=0; $i<10; $i++) {
             Product::create(
                 [
                     'name'               => 'Product ' . $i,
                     'description'        => 'Description lala ' . $i,
-                    'price' => rand(10000, 99999),
+                    'price' => rand(1, 10) * 10,
                 ]
             );
         }

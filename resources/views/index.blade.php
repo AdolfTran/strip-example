@@ -16,10 +16,9 @@
                     {{ session('error') }}
                 </div>
             @endif
-
             <div class="row">
                 @foreach ($products as $product)
-                    <form action="{{ route('pay', $product->id) }}" method="POST">
+                    <form action="{{ route('selects', $product->id) }}" method="POST">
                         {{ csrf_field() }}
                         <div class="col-sm-5 col-md-5">
                             <div class="thumbnail">
@@ -27,17 +26,18 @@
                                     <h3>{{ $product->name }}</h3>
                                     <p>{{ $product->description }}</p>
                                     <p>Buy for ${{ substr_replace($product->price, '.', 2, 0) }}</p>
-                                    <p>
-                                        <script
-                                                src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-                                                data-key="{{ env('STRIPE_KEY') }}"
-                                                data-amount="{{ $product->price }}"
-                                                data-name="Stripe.com"
-                                                data-description="Widget"
-                                                data-locale="auto"
-                                                data-currency="usd">
-                                        </script>
-                                    </p>
+                                    {{--<p>--}}
+                                        {{--<script--}}
+                                                {{--src="https://checkout.stripe.com/checkout.js" class="stripe-button"--}}
+                                                {{--data-key="{{ config('services.stripe.key') }}"--}}
+                                                {{--data-amount="{{ $product->price }}"--}}
+                                                {{--data-name="Stripe.com"--}}
+                                                {{--data-description="Widget"--}}
+                                                {{--data-locale="auto"--}}
+                                                {{--data-currency="usd">--}}
+                                        {{--</script>--}}
+                                    {{--</p>--}}
+                                    <button>Pay</button>
                                 </div>
                             </div>
                         </div>

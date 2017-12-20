@@ -45,7 +45,7 @@ class OrderController extends Controller
      */
     public function chargeCustomer($product_id, $product_price, $product_name, $token)
     {
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
         if (!$this->isStripeCustomer())
         {
@@ -84,7 +84,7 @@ class OrderController extends Controller
                 ->route('index')
                 ->with('error', 'Your credit card was been declined. Please try again or contact us.');
         }
-
+//
         return $this->postStoreOrder($product_name);
     }
 
@@ -97,7 +97,7 @@ class OrderController extends Controller
      */
     public function createStripeCustomer($token)
     {
-        \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
+        \Stripe\Stripe::setApiKey(config('services.stripe.secret'));
 
         $customer = \Stripe\Customer::create(array(
             "description" => Auth::user()->email,

@@ -27,3 +27,14 @@ Route::post('/store', [
     'as' => 'store',
     'middleware' => 'auth'
 ]);
+Route::post('/selects/{product}', [
+    'uses' => 'ProductController@selects',
+    'as' => 'selects',
+    'middleware' => 'auth'
+]);
+
+Route::post('/payment', [
+    'uses' => 'ProductController@payment',
+    'as' => 'payment',
+    'middleware' => 'auth'
+]);

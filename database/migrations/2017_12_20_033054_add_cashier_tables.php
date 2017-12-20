@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class UpdateConfirmSubscriptionsTable extends Migration
+class AddCashierTables extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,14 @@ class UpdateConfirmSubscriptionsTable extends Migration
      */
     public function up()
     {
-        Schema::create('subscriptions', function (Blueprint $table) {
+        Schema::table('users', function ($table) {
+            $table->string('stripe_id')->nullable();
+            $table->string('card_brand')->nullable();
+            $table->string('card_last_four')->nullable();
+            $table->timestamp('trial_ends_at')->nullable();
+        });
+
+        Schema::create('subscriptions', function ($table) {
             $table->increments('id');
             $table->integer('user_id');
             $table->string('name');
@@ -33,6 +40,6 @@ class UpdateConfirmSubscriptionsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subscriptions');
+        Schema::drop('subscriptions');
     }
 }
