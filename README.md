@@ -3,7 +3,7 @@ Example for using stripe
 
 ## Installation
 1. Run `php artisan migrate`
-2. Run `php artisan db:seeder`
+2. Run `php artisan db:seed`
 3. Copy file .env.example to .env
 4. Go to: https://dashboard.stripe.com/account/apikeys 
  - Copy `Publishable key` and paste to `STRIPE_KEY` in file .env
