@@ -11,6 +11,8 @@ Example for using stripe
  5. Go to your site and test. The value for test:
  - Name on Card: Visa
  - Card Number: 4242 4242 4242 4242
+ - CVC: 123
+ - Expiration: 12/2020
 
 ## License
 MIT License
