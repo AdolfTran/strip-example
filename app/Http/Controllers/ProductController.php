@@ -45,4 +45,10 @@ class ProductController extends Controller
                 ->with('error', 'Error !');
         }
     }
+
+    public function select1($id)
+    {
+        $products = \App\Product::find($id);
+        return view('select1', compact('products'));
+    }
 }

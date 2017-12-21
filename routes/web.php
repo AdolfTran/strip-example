@@ -33,6 +33,12 @@ Route::post('/selects/{product}', [
     'middleware' => 'auth'
 ]);
 
+Route::post('/select1/{product}', [
+    'uses' => 'ProductController@select1',
+    'as' => 'select1',
+    'middleware' => 'auth'
+]);
+
 Route::post('/payment', [
     'uses' => 'ProductController@payment',
     'as' => 'payment',

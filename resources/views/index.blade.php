@@ -26,18 +26,8 @@
                                     <h3>{{ $product->name }}</h3>
                                     <p>{{ $product->description }}</p>
                                     <p>Buy for ${{ substr_replace($product->price, '.', 2, 0) }}</p>
-                                    {{--<p>--}}
-                                        {{--<script--}}
-                                                {{--src="https://checkout.stripe.com/checkout.js" class="stripe-button"--}}
-                                                {{--data-key="{{ config('services.stripe.key') }}"--}}
-                                                {{--data-amount="{{ $product->price }}"--}}
-                                                {{--data-name="Stripe.com"--}}
-                                                {{--data-description="Widget"--}}
-                                                {{--data-locale="auto"--}}
-                                                {{--data-currency="usd">--}}
-                                        {{--</script>--}}
-                                    {{--</p>--}}
-                                    <button>Pay</button>
+                                    <button>Pay with stripe</button>
+                                    <a href="{{ route('select1', $product->id) }}">Pay with wechat</a>
                                 </div>
                             </div>
                         </div>
