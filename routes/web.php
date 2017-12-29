@@ -33,9 +33,9 @@ Route::post('/selects/{product}', [
     'middleware' => 'auth'
 ]);
 
-Route::post('/select1/{product}', [
-    'uses' => 'ProductController@select1',
-    'as' => 'select1',
+Route::any('/wechat/{product}', [
+    'uses' => 'WechatController@wechat',
+    'as' => 'wechat',
     'middleware' => 'auth'
 ]);
 

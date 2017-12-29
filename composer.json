@@ -9,7 +9,12 @@
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
-        "laravel/cashier": "~7.0"
+        "laravel/cashier": "~7.0",
+        "overtrue/laravel-wechat": "2.1.*",
+        "socialiteproviders/weibo": "^1.0",
+        "stevenyangecho/laravel-u-editor": "~1.2",
+        "frozennode/administrator": "5.*",
+        "gloudemans/shoppingcart": "dev-master"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
